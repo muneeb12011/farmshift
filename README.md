@@ -1,21 +1,29 @@
 <div align="center">
 
-```
-┌──────────────────────────────────────────────────────────┐
-│                                                          │
-│   F A R M S H I F T                                      │
-│   ─────────────────                                      │
-│   plan the next season before you plant it               │
-│                                                          │
-│   ░░▒▒▓▓██  satellite  ·  weather  ·  agronomy  ██▓▓▒▒░░ │
-│                                                          │
-└──────────────────────────────────────────────────────────┘
-```
+<img src="assets/banner.svg" alt="FarmShift: plan the next season before you plant it" width="100%">
 
-**A crop-rotation planner driven by real satellite and climate data.**
-Pick a field, describe your soil and goals, and compare rotation scenarios side by side.
+<br><br>
 
-[Quick start](#-quick-start) · [How it works](#-how-it-works) · [What's real](#-what-is-real-and-what-is-modelled) · [Commands](#-commands) · [Production](#-going-to-production) · [Troubleshooting](#-troubleshooting)
+<h3>A crop-rotation planner driven by real satellite and climate data.</h3>
+
+<p>Pick a field, describe your soil and goals,<br>and compare rotation scenarios side by side.</p>
+
+<p>
+<a href="#-quick-start">Quick start</a> &nbsp;&nbsp;◆&nbsp;&nbsp;
+<a href="#-how-it-works">How it works</a> &nbsp;&nbsp;◆&nbsp;&nbsp;
+<a href="#-what-is-real-and-what-is-modelled">What's real</a> &nbsp;&nbsp;◆&nbsp;&nbsp;
+<a href="#-commands">Commands</a> &nbsp;&nbsp;◆&nbsp;&nbsp;
+<a href="#-going-to-production">Production</a> &nbsp;&nbsp;◆&nbsp;&nbsp;
+<a href="#-troubleshooting">Troubleshooting</a>
+</p>
+
+<p>
+<img src="https://img.shields.io/badge/Next.js-frontend-0b1a14?style=flat-square&logo=nextdotjs&logoColor=f6f0dc" alt="Next.js">
+<img src="https://img.shields.io/badge/Fastify-API-173a2c?style=flat-square&logo=fastify&logoColor=f6f0dc" alt="Fastify">
+<img src="https://img.shields.io/badge/Node-22.13%2B-3f8a45?style=flat-square&logo=nodedotjs&logoColor=white" alt="Node 22.13+">
+<img src="https://img.shields.io/badge/data-NASA%20POWER%20%2B%20MODIS-c9a227?style=flat-square" alt="NASA POWER and MODIS">
+<img src="https://img.shields.io/badge/license-MIT-8cb33e?style=flat-square" alt="MIT">
+</p>
 
 </div>
 
