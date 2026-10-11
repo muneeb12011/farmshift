@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 340" width="1200" height="340" role="img" aria-label="FarmShift: plan the next season before you plant it">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#0b1a14"/>
+      <stop offset="1" stop-color="#173a2c"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#f2c14e" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#f2c14e" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="pixels" width="22" height="22" patternUnits="userSpaceOnUse">
+      <rect x="2" y="2" width="16" height="16" rx="2" fill="#7fc36b" opacity="0.07"/>
+    </pattern>
+    <clipPath id="round"><rect width="1200" height="340" rx="22"/></clipPath>
+  </defs>
+
+  <g clip-path="url(#round)">
+    <rect width="1200" height="340" fill="url(#sky)"/>
+    <rect width="1200" height="340" fill="url(#pixels)"/>
+    <circle cx="1030" cy="70" r="170" fill="url(#sun)"/>
+    <circle cx="1030" cy="70" r="34" fill="#f2c14e" opacity="0.9"/>
+
+    <!-- rotation bands: each crop season is a different colour -->
+    <path d="M0 252 Q300 214 600 244 T1200 236 V340 H0 Z" fill="#c9a227" opacity="0.95"/>
+    <path d="M0 274 Q320 238 620 266 T1200 258 V340 H0 Z" fill="#8cb33e"/>
+    <path d="M0 294 Q300 262 600 288 T1200 280 V340 H0 Z" fill="#3f8a45"/>
+    <path d="M0 314 Q320 288 620 308 T1200 302 V340 H0 Z" fill="#245c38"/>
+    <path d="M0 330 Q300 316 600 326 T1200 322 V340 H0 Z" fill="#4a2f1a"/>
+
+    <!-- title -->
+    <text x="600" y="128" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="78" font-weight="800" letter-spacing="16" fill="#f6f0dc">FARMSHIFT</text>
+    <rect x="540" y="148" width="120" height="4" rx="2" fill="#f2c14e"/>
+    <text x="600" y="190" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="23" font-style="italic" fill="#bfdcae">plan the next season before you plant it</text>
+    <text x="600" y="222" text-anchor="middle" font-family="'Segoe UI', 'Helvetica Neue', Arial, sans-serif" font-size="14" font-weight="600" letter-spacing="7" fill="#f2c14e">SATELLITE   ·   WEATHER   ·   AGRONOMY</text>
+  </g>
+</svg>
