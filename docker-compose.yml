@@ -1,0 +1,44 @@
+# Production stack: Caddy (automatic HTTPS) -> web (Next.js) + api (Fastify, SQLite volume).
+#   (PostgreSQL instead of SQLite: add  -f docker-compose.postgres.yml  to the command below)
+#   1. cp .env.production.example .env.production   (or: npm run init:prod -- your.domain.com)
+#   2. docker compose --env-file .env.production up -d --build
+services:
+  caddy:
+    image: caddy:2
+    restart: unless-stopped
+    ports: ["80:80", "443:443"]
+    environment:
+      DOMAIN: ${DOMAIN:?set DOMAIN in .env.production}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      api: { condition: service_healthy }
+      web: { condition: service_healthy }
+
+  web:
+    build:
+      context: ./farmshift
+      args:
+        NEXT_PUBLIC_API_URL: /api/v1
+    restart: unless-stopped
+    expose: ["3000"]
+
+  api:
+    build: ./farmshift-backend
+    restart: unless-stopped
+    env_file: .env.production
+    environment:
+      NODE_ENV: production
+      PORT: "4000"
+      DATABASE_PATH: /data/farmshift.db
+      CORS_ORIGINS: https://${DOMAIN}
+    volumes:
+      - api_data:/data
+    expose: ["4000"]
+
+volumes:
+  api_data:
+  caddy_data:
+  caddy_config:

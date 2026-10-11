@@ -1,0 +1,20 @@
+{$DOMAIN} {
+	encode zstd gzip
+
+	# API, docs and probes go to the backend; everything else is the Next.js app.
+	# /metrics is intentionally NOT routed publicly.
+	@api path /api/* /docs /docs/* /openapi.json /health /ready
+	handle @api {
+		reverse_proxy api:4000
+	}
+	handle {
+		reverse_proxy web:3000
+	}
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		-Server
+	}
+}

@@ -1,0 +1,20 @@
+{
+  "name": "farmshift-fullstack",
+  "private": true,
+  "version": "1.0.0",
+  "description": "FarmShift: Next.js frontend + Fastify backend (satellite data & crop-rotation engine)",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "dev": "node scripts/dev.mjs",
+    "test": "npm --prefix farmshift-backend test",
+    "typecheck": "npm --prefix farmshift-backend run typecheck && npm --prefix farmshift exec tsc -- --noEmit",
+    "smoke:live": "npm --prefix farmshift-backend run smoke:live",
+    "init": "node scripts/init.mjs",
+    "init:prod": "node scripts/init.mjs --prod",
+    "set-key": "node scripts/set-env.mjs",
+    "backup": "npm --prefix farmshift-backend run backup --"
+  }
+}

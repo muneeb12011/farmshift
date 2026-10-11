@@ -1,0 +1,485 @@
+@import "tailwindcss";
+
+/* ============================================
+   FARMSHIFT DESIGN SYSTEM
+   NASA Colors: #063D91 (Blue), #FC3D21 (Red), #FFFFFF (White)
+   ============================================ */
+
+@theme inline {
+  /* NASA Brand Colors */
+  --color-nasa-blue: #063D91;
+  --color-nasa-red: #FC3D21;
+  --color-nasa-white: #FFFFFF;
+
+  /* Dark backgrounds */
+  --color-bg-primary: #071014;
+  --color-bg-secondary: #0B171A;
+  --color-bg-tertiary: #102326;
+  --color-bg-elevated: #142D2D;
+  --color-bg-card: rgba(11, 23, 26, 0.8);
+
+  /* Text */
+  --color-text-primary: #F5F7F2;
+  --color-text-secondary: #9BAAA5;
+  --color-text-muted: #6B7F79;
+
+  /* Semantic */
+  --color-green: #65C18C;
+  --color-teal: #4EC4B1;
+  --color-amber: #E7B75B;
+  --color-red: #E06C5A;
+
+  /* Borders */
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-hover: rgba(255, 255, 255, 0.16);
+  --color-border-active: rgba(6, 61, 145, 0.5);
+
+  /* Fonts */
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Shadows */
+  --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+  --shadow-elevated: 0 8px 48px rgba(0, 0, 0, 0.4);
+  --shadow-glow-blue: 0 0 40px rgba(6, 61, 145, 0.3);
+  --shadow-glow-green: 0 0 40px rgba(101, 193, 140, 0.15);
+
+  /* Custom Space scale */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-secondary);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Selection */
+::selection {
+  background: rgba(6, 61, 145, 0.4);
+  color: var(--color-text-primary);
+}
+
+/* ============================================
+   CARD SYSTEM
+   ============================================ */
+
+.card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card:hover {
+  border-color: var(--color-border-hover);
+  box-shadow: var(--shadow-card);
+}
+
+.card-elevated {
+  background: var(--color-bg-tertiary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+}
+
+/* ============================================
+   BUTTON SYSTEM
+   ============================================ */
+
+.btn-primary {
+  background: var(--color-nasa-blue);
+  color: var(--color-nasa-white);
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-primary:hover {
+  background: #084db5;
+  box-shadow: var(--shadow-glow-blue);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-text-primary);
+  font-weight: 500;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.9rem;
+  letter-spacing: 0.01em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-secondary:hover {
+  border-color: var(--color-nasa-blue);
+  background: rgba(6, 61, 145, 0.1);
+}
+
+.btn-accent {
+  background: var(--color-nasa-red);
+  color: var(--color-nasa-white);
+  font-weight: 600;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius-md);
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 0.9rem;
+}
+
+.btn-accent:hover {
+  background: #e03519;
+  transform: translateY(-1px);
+}
+
+/* ============================================
+   DATA BADGE / TAG
+   ============================================ */
+
+.data-badge {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-sm);
+  background: rgba(6, 61, 145, 0.15);
+  color: rgba(6, 61, 145, 0.9);
+  border: 1px solid rgba(6, 61, 145, 0.2);
+}
+
+.data-badge-green {
+  background: rgba(101, 193, 140, 0.12);
+  color: var(--color-green);
+  border-color: rgba(101, 193, 140, 0.2);
+}
+
+.data-badge-amber {
+  background: rgba(231, 183, 91, 0.12);
+  color: var(--color-amber);
+  border-color: rgba(231, 183, 91, 0.2);
+}
+
+.data-badge-red {
+  background: rgba(224, 108, 90, 0.12);
+  color: var(--color-red);
+  border-color: rgba(224, 108, 90, 0.2);
+}
+
+/* ============================================
+   INPUT SYSTEM
+   ============================================ */
+
+.input {
+  background: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text-primary);
+  padding: 0.7rem 1rem;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+  width: 100%;
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--color-nasa-blue);
+  box-shadow: 0 0 0 3px rgba(6, 61, 145, 0.15);
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+}
+
+/* ============================================
+   SLIDER SYSTEM
+   ============================================ */
+
+input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 6px;
+  background: var(--color-bg-tertiary);
+  border-radius: 3px;
+  outline: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 18px;
+  height: 18px;
+  background: var(--color-nasa-blue);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 8px rgba(6, 61, 145, 0.4);
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+  background: #084db5;
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg) translateX(140px) rotate(0deg); }
+  to { transform: rotate(360deg) translateX(140px) rotate(-360deg); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(6, 61, 145, 0.15); }
+  50% { border-color: rgba(6, 61, 145, 0.35); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes kenBurns {
+  0% { transform: scale(1) translate(0, 0); }
+  50% { transform: scale(1.06) translate(-1%, -0.8%); }
+  100% { transform: scale(1) translate(0, 0); }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(800%); }
+}
+
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-pulse-soft { animation: pulse-soft 2s ease-in-out infinite; }
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.04) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+.animate-fade-in-up { animation: fadeInUp 0.6s ease-out; }
+.animate-slide-in-left { animation: slideInLeft 0.6s ease-out; }
+.animate-scale-in { animation: scaleIn 0.5s ease-out; }
+.animate-border-glow { animation: borderGlow 3s ease-in-out infinite; }
+.animate-ken-burns { animation: kenBurns 16s ease-in-out infinite; }
+.animate-scanline { animation: scanline 6s linear infinite; }
+
+/* Skeleton loader */
+.skeleton {
+  background: linear-gradient(90deg, var(--color-bg-tertiary) 25%, var(--color-bg-elevated) 50%, var(--color-bg-tertiary) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius-md);
+}
+
+/* ============================================
+   TOOLTIP
+   ============================================ */
+
+.tooltip {
+  position: relative;
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-bg-elevated);
+  color: var(--color-text-primary);
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s;
+  border: 1px solid var(--color-border);
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+}
+
+/* ============================================
+   CHART CUSTOMIZATIONS
+   ============================================ */
+
+.recharts-cartesian-axis-tick-value {
+  fill: var(--color-text-muted) !important;
+  font-size: 0.75rem !important;
+  font-family: var(--font-mono) !important;
+}
+
+.recharts-legend-item-text {
+  color: var(--color-text-secondary) !important;
+  font-size: 0.8rem !important;
+}
+
+/* MapLibre overrides */
+.maplibregl-ctrl-group {
+  background: var(--color-bg-secondary) !important;
+  border: 1px solid var(--color-border) !important;
+  border-radius: var(--radius-md) !important;
+}
+
+.maplibregl-ctrl-group button {
+  background-color: transparent !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+.maplibregl-ctrl-group button span {
+  filter: invert(1);
+}
+
+/* ============================================
+   PAGE SECTION
+   ============================================ */
+
+.section {
+  padding: var(--space-4xl) var(--space-xl);
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+  color: var(--color-text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 640px;
+}
+
+/* ============================================
+   IMAGE UTILITIES
+   ============================================ */
+
+.image-reveal {
+  clip-path: inset(0 0 0 0);
+  transition: clip-path 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.image-hover-zoom {
+  transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.image-hover-zoom:hover {
+  transform: scale(1.03);
+}
+
+/* ============================================
+   RESPONSIVE UTILITIES
+   ============================================ */
+
+@media (max-width: 768px) {
+  .section {
+    padding: var(--space-2xl) var(--space-md);
+  }
+  .section-title {
+    font-size: 1.5rem;
+  }
+}

@@ -1,0 +1,28 @@
+# Run on PostgreSQL instead of SQLite (needed for more than one API instance, managed backups, etc.):
+#   docker compose -f docker-compose.yml -f docker-compose.postgres.yml --env-file .env.production up -d --build
+# Set POSTGRES_PASSWORD in .env.production. For a managed database (RDS, Neon, Supabase...) skip this file and
+# just set DATABASE_URL (and DATABASE_SSL=true) in .env.production.
+services:
+  postgres:
+    image: postgres:17
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: farmshift
+      POSTGRES_USER: farmshift
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env.production}
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U farmshift -d farmshift"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  api:
+    depends_on:
+      postgres: { condition: service_healthy }
+    environment:
+      DATABASE_URL: postgres://farmshift:${POSTGRES_PASSWORD}@postgres:5432/farmshift
+
+volumes:
+  pg_data:
